@@ -1,25 +1,29 @@
-name: 'Synology Uploader'
-description: 'Upload artifacts to your Synology FileStation'
+name: "Synology Uploader"
+description: "Upload artifacts to your Synology FileStation"
 branding:
   icon: box
   color: black
 inputs:
-  host: 
-    description: 'Host name of the Synology NAS, including the protocol (HTTP/HTTPS) and the port, without trailing slash'
+  host:
+    description: "Host name of the Synology NAS, including the protocol (HTTP/HTTPS) and the port, without trailing slash"
     required: true
-  sharing_id: 
-    description: 'Sharing ID provided by Synology'
+  sharing_id:
+    description: "Sharing ID provided by Synology"
     required: true
-  password: 
-    description: 'The password for the file request, if defined'
-  file: 
-    description: 'The file to upload'
+  password:
+    description: "The password for the file request, if defined"
+  file:
+    description: "The file to upload"
     required: true
-  uploader_name: 
-    description: 'Uploader name'
+  uploader_name:
+    description: "Uploader name"
     required: true
 runs:
-  using: "composite"
-  steps:
-    - run: chmod +x ./uploader.sh && ./uploader.sh --host ${{inputs.host}} --password ${{inputs.password}} --sharing_id ${{inputs.sharing_id}} --uploader_name ${{inputs.uploader_name}} --file ${{inputs.file}}
-      shell: bash
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{inputs.host}}
+    - ${{inputs.password}}
+    - ${{inputs.sharing_id}}
+    - ${{inputs.uploader_name}}
+    - ${{inputs.file}}
