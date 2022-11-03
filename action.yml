@@ -1,0 +1,26 @@
+name: 'Synology Uploader'
+description: 'Upload artifacts to your Synology FileStation'
+inputs:
+  host: 
+    description: 'Host name of the Synology NAS, including the protocol (HTTP/HTTPS) and the port, without trailing slash'
+    required: true
+  sharing_id: 
+    description: 'Sharing ID provided by Synology'
+    required: true
+  password: 
+    description: 'The password for the file request, if defined'
+  file: 
+    description: 'The file to upload'
+    required: true
+  uploader_name: 
+    description: 'Uploader name'
+    required: true
+outputs:
+  random-number:
+    description: "Random number"
+    value: ${{ steps.random-number-generator.outputs.random-number }}
+runs:
+  using: "composite"
+  steps:
+    - run: chmod +x ./upload.sh && ./upload.sh --host ${{inputs.host}} --password ${{inputs.password}} --sharing_id ${{inputs.sharing_id}} --uploader_name ${{inputs.uploader_name}} --file ${{inputs.file}}
+      shell: bash
