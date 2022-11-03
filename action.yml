@@ -1,5 +1,7 @@
 name: 'Synology Uploader'
 description: 'Upload artifacts to your Synology FileStation'
+icon: box
+color: black
 inputs:
   host: 
     description: 'Host name of the Synology NAS, including the protocol (HTTP/HTTPS) and the port, without trailing slash'
