@@ -15,10 +15,6 @@ inputs:
   uploader_name: 
     description: 'Uploader name'
     required: true
-outputs:
-  random-number:
-    description: "Random number"
-    value: ${{ steps.random-number-generator.outputs.random-number }}
 runs:
   using: "composite"
   steps:
