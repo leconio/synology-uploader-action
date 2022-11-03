@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/sh -l
+
 HOST=$1
 PASSWORD=$2
 SHARING_ID=$3
