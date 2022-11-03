@@ -4,8 +4,8 @@ Usage:
 1. create a file request from you synology file station
 2. add yml to your workflow
 ```
-      - name: upload
-        uses: actions/synology-uploader-action@v1.0.3
+      - name: Synology Uploader
+        uses: leconio/synology-uploader-action@v1.0.3
         with: 
           host: ${{secrets.NAS_HOST}}
           sharing_id: ${{secrets.NAS_SHAREID}}
