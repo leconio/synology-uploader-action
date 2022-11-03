@@ -12,8 +12,8 @@ jobs:
       - name: upload
         uses: ./
         with: 
-          host: 'https://lecon.myds.me:5001'
+          host: ${{NAS_HOST}}
           sharing_id: 'gDVIsFgc6'
           uploader_name: 'test_name'
-          password: 'a123456'
+          password: ${{NAS_PASSWD}}
           file: 'hello.txt'
