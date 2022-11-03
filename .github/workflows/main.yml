@@ -12,8 +12,8 @@ jobs:
       - name: upload
         uses: ./
         with: 
-          host: ${{NAS_HOST}}
+          host: ${{secrets.NAS_HOST}}
           sharing_id: 'gDVIsFgc6'
           uploader_name: 'test_name'
-          password: ${{NAS_PASSWD}}
+          password: ${{secrets.NAS_PASSWD}}
           file: 'hello.txt'
