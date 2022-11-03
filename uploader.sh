@@ -87,7 +87,7 @@ filename=$(basename "$FILE")
 ext="${filename##*.}"
 basename="${filename%.*}"
 
-DEST_FILE=$basename_$(date +%Y%m%d)_$(date +%H%M%S).$ext
+DEST_FILE="$basename"_$(date +%Y%m%d)_$(date +%H%M%S).$ext
 
 mv $FILE $DEST_FILE
 
