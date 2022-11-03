@@ -18,5 +18,5 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: chmod +x ./upload.sh && ./upload.sh --host ${{inputs.host}} --password ${{inputs.password}} --sharing_id ${{inputs.sharing_id}} --uploader_name ${{inputs.uploader_name}} --file ${{inputs.file}}
+    - run: chmod +x ./uploader.sh && ./uploader.sh --host ${{inputs.host}} --password ${{inputs.password}} --sharing_id ${{inputs.sharing_id}} --uploader_name ${{inputs.uploader_name}} --file ${{inputs.file}}
       shell: bash
