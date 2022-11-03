@@ -83,6 +83,13 @@ else
     -j -c /tmp/syno_file_upload_cookies > /dev/null
 fi
 
+filename=$(basename "$fullfilename")
+ext="${filename##*.}"
+
+DEST_FILE=$filename_$(date +%Y%m%d)_$(date +%H%M%S).$ext
+
+mv $FILE $DEST_FILE
+
 echo "Uploading the file..."
 FILE_LAST_MODIFIED=$(date -r $DEST_FILE +%s%3N)
 curl -s -L -X POST "$HOST/webapi/entry.cgi?api=SYNO.FileStation.Upload&method=upload&version=2&_sharing_id=%22$SHARING_ID%22" \
