@@ -83,7 +83,7 @@ else
     -j -c /tmp/syno_file_upload_cookies > /dev/null
 fi
 
-filename=$(basename "$fullfilename")
+filename=$(basename "$FILE")
 ext="${filename##*.}"
 
 DEST_FILE=$filename_$(date +%Y%m%d)_$(date +%H%M%S).$ext
